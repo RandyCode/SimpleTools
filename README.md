@@ -5,7 +5,7 @@ Little things description
 
 
 FOR ENCRYPTEDMAIL PROJECT
-
+===========
     STEP 1: First you must apply a certification. this website has provided a free secure email certificate 
             'http://www.comodo.com/home/email-security/free-email-certificate.php'
     STEP 2: install your certification.
@@ -15,7 +15,7 @@ FOR ENCRYPTEDMAIL PROJECT
     
     
 FOR WATCHEFOLDER PROJECT
-
+===========
     configurate you folder path in web.config file,and start .
 
 
