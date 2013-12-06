@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project_config>
+  <name_space>EnterpriseNews.Models</name_space>
+  <data_source host="LBDZ-20130503DL" username="sa" password="12345678" database_name="enterprise_info" provider="" />
+  <objects>
+    <item table_name="news" view_name="" object_name="News">
+      <members>
+        <item member_name="Id" column_name="id" ignore_data_member="False" data_member_name="Id" />
+        <item member_name="Title" column_name="title" ignore_data_member="False" data_member_name="Title" />
+        <item member_name="Content" column_name="content" ignore_data_member="False" data_member_name="Content" />
+        <item member_name="CreateDatetime" column_name="create_datetime" ignore_data_member="False" data_member_name="CreateDatetime" />
+        <item member_name="Remark" column_name="remark" ignore_data_member="False" data_member_name="Remark" />
+        <item member_name="NewsInEnglishId" column_name="news_in_english_id" ignore_data_member="False" data_member_name="NewsInEnglishId" />
+      </members>
+    </item>
+  </objects>
+  <output_folder>C:\Users\Administrator\Desktop\tools\CodeGenerator</output_folder>
+  <data_contract_enable>False</data_contract_enable>
+  <nullable_property_support>False</nullable_property_support>
+</project_config>
