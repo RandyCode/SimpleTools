@@ -1,8 +1,3 @@
-SimpleTools
-===========
-
-Little things description
-
 
 FOR ENCRYPTEDMAIL PROJECT
 ===========
