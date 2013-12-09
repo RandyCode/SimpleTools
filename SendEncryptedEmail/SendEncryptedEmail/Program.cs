@@ -23,7 +23,7 @@ namespace SendEncryptedEmail
             
                 SmtpClient client = new SmtpClient("smtp.live.com");
                 client.Port = 25;
-                client.Credentials = new System.Net.NetworkCredential("randy.lai@egoal-tech.com", "like6522626");
+                client.Credentials = new System.Net.NetworkCredential("set your email address", "input your password,not mine^-^");
                 client.EnableSsl = true;
 
                 client.Send(mail);
