@@ -1,0 +1,36 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="SilverlightTest" EntryPointType="SilverlightTest.App" RuntimeVersion="5.0.61118.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="SilverlightTest" Source="SilverlightTest.dll" />
+    <AssemblyPart x:Name="Expression" Source="Expression.dll" />
+    <AssemblyPart x:Name="Forms" Source="Forms.dll" />
+    <AssemblyPart x:Name="Matrix.Silverlight.Forms.Extends" Source="Matrix.Silverlight.Forms.Extends.dll" />
+    <AssemblyPart x:Name="Matrix.Silverlight.Net" Source="Matrix.Silverlight.Net.dll" />
+    <AssemblyPart x:Name="Matrix.Silverlight.Utils" Source="Matrix.Silverlight.Utils.dll" />
+    <AssemblyPart x:Name="Matrix.Silverlight.Validation" Source="Matrix.Silverlight.Validation.dll" />
+    <AssemblyPart x:Name="SilverlightTest.Services" Source="SilverlightTest.Services.dll" />
+    <AssemblyPart x:Name="System.ComponentModel.DataAnnotations" Source="System.ComponentModel.DataAnnotations.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Data" Source="System.Windows.Controls.Data.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Data.Input" Source="System.Windows.Controls.Data.Input.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls" Source="System.Windows.Controls.dll" />
+    <AssemblyPart x:Name="system.windows.controls.input.toolkit" Source="system.windows.controls.input.toolkit.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Navigation" Source="System.Windows.Controls.Navigation.dll" />
+    <AssemblyPart x:Name="system.windows.controls.toolkit" Source="system.windows.controls.toolkit.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Toolkit.Internals" Source="System.Windows.Controls.Toolkit.Internals.dll" />
+    <AssemblyPart x:Name="System.Windows.Data" Source="System.Windows.Data.dll" />
+    <AssemblyPart x:Name="System.Xml.Linq" Source="System.Xml.Linq.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Input" Source="System.Windows.Controls.Input.dll" />
+    <AssemblyPart x:Name="System.Windows.Interactivity" Source="System.Windows.Interactivity.dll" />
+    <AssemblyPart Source="zh-Hans/SilverlightTest.resources.dll" />
+    <AssemblyPart Source="zh-Hans/Forms.resources.dll" />
+    <AssemblyPart Source="zh-Hans/Matrix.Silverlight.Forms.Extends.resources.dll" />
+    <AssemblyPart Source="zh-Hans/Matrix.Silverlight.Validation.resources.dll" />
+    <AssemblyPart Source="zh-Hans/System.ComponentModel.DataAnnotations.resources.dll" />
+    <AssemblyPart Source="zh-Hans/System.Windows.Controls.resources.dll" />
+    <AssemblyPart Source="zh-Hans/System.Windows.Controls.Data.resources.dll" />
+    <AssemblyPart Source="zh-Hans/System.Windows.Controls.Data.Input.resources.dll" />
+    <AssemblyPart Source="zh-Hans/System.Windows.Controls.Navigation.resources.dll" />
+    <AssemblyPart Source="zh-Hans/System.Windows.Data.resources.dll" />
+    <AssemblyPart Source="zh-Hans/System.Xml.Linq.resources.dll" />
+    <AssemblyPart Source="zh-Hans/System.Windows.Controls.Input.resources.dll" />
+  </Deployment.Parts>
+</Deployment>

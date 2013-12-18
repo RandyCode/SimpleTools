@@ -1,0 +1,29 @@
+﻿<link href="~/Content/testcss.css" rel="stylesheet" />
+@{  
+    Html.LinkList().Items(items =>
+   {
+       items.Add().Title("link1").Url("#");
+       items.Add().Title("222").Url("#");
+
+   })
+   .SetHtmlStyle(new MvcComponent.Models.StyleCss {   Width=100, FontColor="#fff"})
+   .SetHtmlClass("bg")
+   .GenerateId()
+   .Render();
+}
+<br />
+<br />
+@*<div class="bg" style="width:100px;height:100px"></div>*@
+@{
+    var listitems = new List<MvcComponent.Models.Foo>();
+    listitems.Add(new MvcComponent.Models.Foo() { Key = "BindingItem1", Value = "#" });
+    listitems.Add(new MvcComponent.Models.Foo() { Key = "BindingItem2", Value = "#" });
+    listitems.Add(new MvcComponent.Models.Foo() { Key = "BindingItem3", Value = "#" });
+    
+    Html.LinkList()
+        .Bind(listitems, m => m.Key, m => m.Value)
+        .GenerateId()
+        .Render();
+}
+
+

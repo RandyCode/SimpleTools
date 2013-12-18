@@ -1,0 +1,24 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IEmployeesService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IUserService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:3583/EmployeesService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IEmployeesService"
+                contract="EmployeesService.IEmployeesService" name="BasicHttpBinding_IEmployeesService" />
+            <endpoint address="http://localhost:3583/UserService.svc" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_IUserService" contract="UserService.IUserService"
+                name="BasicHttpBinding_IUserService" />
+        </client>
+    </system.serviceModel>
+</configuration>

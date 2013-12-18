@@ -1,0 +1,197 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+             xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+             xmlns:cvt="clr-namespace:SilverlightTest.Converter"
+             xmlns:helper="clr-namespace:SilverlightTest.Helper"
+             xmlns:mx="matrix"
+             x:Class="SilverlightTest.View.Employees"
+             mc:Ignorable="d"
+             d:DesignHeight="600"
+             d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style x:Key="Cell_right"
+               TargetType="sdk:DataGridCell">
+            <Setter Property="HorizontalAlignment"
+                    Value="Right">
+            </Setter>
+        </Style>
+        <Style x:Key="Remark_Wrapping"
+               TargetType="TextBlock">
+            <Setter Property="TextWrapping"
+                    Value="Wrap"></Setter>
+        </Style>
+
+        <Style x:Key="SelectedStyle"
+               TargetType="sdk:DataGridColumnHeader">
+            <Setter Property="Margin"
+                    Value="10 4" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Checked="OnCommitAll"
+                                      Unchecked="OnCancleSelect"></CheckBox>
+                            <TextBlock Text="SelectAll"></TextBlock>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <cvt:GenderConverter x:Key="Gender"></cvt:GenderConverter>
+        <cvt:BonusConverter x:Key="bonus"></cvt:BonusConverter>
+        <cvt:LevelConverter x:Key="level"></cvt:LevelConverter>
+        <cvt:AgeConverter x:Key="age"></cvt:AgeConverter>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot"
+          Background="White">
+        <Grid x:Name="MenuDetail"
+              Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition  Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid  Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal"
+                            Grid.Column="0">
+                    <TextBlock Text="Department: "
+                               ToolTipService.ToolTip="按部门筛选"
+                               Width="80"
+                               Padding="0 8"
+                              VerticalAlignment="Center"
+                               Height="auto"
+                               Grid.Row="0" />
+                    <ComboBox     Width="180"
+                                  Height="auto"
+                                  Margin="0 8"
+                                  x:Name="DepartmentElement"
+                                  SelectionChanged="OnDepartment_SelectionChanged" />
+                </StackPanel>
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+                    <Button Content="新增员工"
+                            Width="70"
+                            Height="25"
+                            Margin="10"
+                            helper:Operation.Action="Hide"
+                            helper:Operation.Code="ADD_OPERATION"
+                            Click="OnCreate"></Button>
+                    <Rectangle Width="1"
+                               Fill="Black"
+                               Height="25">
+                    </Rectangle>
+                    <Button Content="删除员工"
+                            Width="70"
+                            Margin="5"
+                            Height="25"
+                            helper:Operation.Action="Disable"
+                            helper:Operation.Code="DELETE_OPERATION"
+                            Click="OnDelete"></Button>
+
+                </StackPanel>
+            </Grid>
+            <mx:DataGridEx Grid.Row="1"
+                           x:Name="Dgrid">
+
+                <mx:DataGridEx.Columns>
+
+                    <sdk:DataGridTemplateColumn Width="auto"
+                                                HeaderStyle="{StaticResource SelectedStyle}">
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          IsEnabled="True"
+                                          Click="OnCheckClick"></CheckBox>
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+
+
+                    <sdk:DataGridTextColumn Binding="{Binding Name}"
+                                            Header="Name" />
+
+                    <sdk:DataGridTextColumn Binding="{Binding Birthday,Converter={StaticResource age}}"
+                                            Header="Age" />
+
+                    <sdk:DataGridTextColumn Binding="{Binding Birthday,StringFormat='yyyy-MM-dd'}"
+                                            Header="Birthday" />
+
+                    <sdk:DataGridTextColumn Binding="{Binding DepartmentName}"
+                                            Header="Department" />
+
+                    <sdk:DataGridTextColumn Binding="{Binding Salary,StringFormat=N2}"
+                                            CellStyle="{StaticResource Cell_right}"
+                                            Header="Salary" />
+
+                    <sdk:DataGridTextColumn Binding="{Binding Bonus ,StringFormat=N2,TargetNullValue='---'}"
+                                            CellStyle="{StaticResource Cell_right}"
+                                            Header="Bonus" />
+
+                    <sdk:DataGridTextColumn Binding="{Binding Sex,Converter={StaticResource Gender}}"
+                                            Header="Sex" />
+
+                    <sdk:DataGridTextColumn Binding="{Binding Level,Converter={StaticResource level}}"
+                                            Header="Level" />
+
+                    <sdk:DataGridTextColumn Header="Remark"
+                                            Width="*"
+                                            ElementStyle="{StaticResource Remark_Wrapping}"
+                                            Binding="{Binding Remark}" />
+
+                    <sdk:DataGridTemplateColumn Header="Skills"
+                                                Width="100">
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ItemsControl ItemsSource="{Binding Skills}">
+                                    <ItemsPanelTemplate>
+                                        <toolkit:WrapPanel />
+                                    </ItemsPanelTemplate>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Margin="3"
+                                                       Text="{Binding Info}">
+
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+
+                    <sdk:DataGridTemplateColumn Width="120"
+                                                Header="操作">
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+
+                                <Button Content="编 辑"
+                                        Margin="5"
+                                        Width="50"
+                                        Height="25"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Click="OnEdit"></Button>
+
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                    </mx:DataGridEx.Columns>
+              </mx:DataGridEx>
+        </Grid>
+    </Grid>
+</UserControl>
+
+    
