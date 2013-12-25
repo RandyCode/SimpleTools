@@ -12,33 +12,17 @@ namespace MvcComponent.Component
     public abstract class BaseComponent
     {
         private ViewContext _viewContext;
-        private string _id;
+        private StringBuilder _htmlAttribute;
+
 
         public ViewContext ViewContext
         {
             get { return _viewContext; }
         }
 
-        public virtual string Id
-        {
-            get
-            {
-                if ((string.IsNullOrEmpty(_id)) && (!string.IsNullOrEmpty(Name)))
-                {
-                    var _tag = new TagBuilder(TagName);
-                    _tag.GenerateId(Name);
-                    if (_tag.Attributes.ContainsKey("id"))
-                        _id = _tag.Attributes["id"];
-                    else
-                        _id = Name;
-                }
-                return _id;
-            }
-            private set { _id = value; }
-        }
-
         public virtual string Name { get; set; }
 
+        //default container
         public virtual string TagName
         {
             get
@@ -47,16 +31,27 @@ namespace MvcComponent.Component
             }
         }
 
-        //自定義html屬性  《-- 應提供個重寫方法。。返回當前空間
+        public virtual StringBuilder HtmlAttribute
+        {
+            get 
+            {
+                if (this._htmlAttribute == null)
+                    _htmlAttribute = new StringBuilder();
 
-        public virtual string HtmlStyle { get; set; }
-
-        public virtual string HtmlClass { get; set; }
+                return _htmlAttribute;
+            }
+            set
+            {
+                _htmlAttribute = value;
+            }
+        }
 
         public BaseComponent(ViewContext context)
         {
             this._viewContext = context;
+
         }
+
 
         public virtual void Render(HtmlTextWriter writer)
         {
@@ -67,19 +62,21 @@ namespace MvcComponent.Component
             RenderEndConent(writer);
         }
 
+
         //輸出頭部+樣式如:  <a class='' style=''>
         public virtual void RenderBeginContent(HtmlTextWriter writer)
         {
-            writer.WriteFullBeginTag(TagName + HtmlClass + HtmlStyle);
+            writer.WriteFullBeginTag(TagName + HtmlAttribute.ToString());
         }
 
         //當前component下<a>包含的內容  如:  <a><span></span></a>  <span></span>為content
         public virtual void RenderConent(HtmlTextWriter writer) { }
 
+
         //輸出結束如:  </a>
         public virtual void RenderEndConent(HtmlTextWriter writer)
         {
-            writer.WriteEndTag(TagName);
+             writer.WriteEndTag(TagName);
         }
 
 

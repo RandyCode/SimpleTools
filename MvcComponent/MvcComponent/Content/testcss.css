@@ -1,3 +1,23 @@
 ﻿.bg {
-background-color:lightgreen;
+    background-color: lightgreen;
+}
+
+.button {
+    background-color: lightblue;
+}
+
+.tabul {
+    padding: 10px 0px;
+    font-weight: bold;
+}
+
+.tabul li {
+        list-style: none;
+        float: left;
+        border:1px solid #cccccc;
+        top: 5px;
+        text-align:center;
+    }
+div {
+
 }

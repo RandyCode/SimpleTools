@@ -112,20 +112,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Class1.cs" />
+    <Compile Include="Component\Attributes\JqueryOptionAttribute.cs" />
     <Compile Include="Component\BaseBuilder.cs" />
     <Compile Include="Component\BaseComponent.cs" />
+    <Compile Include="Component\Button\AjaxButtonBuilder.cs" />
+    <Compile Include="Component\Button\AjaxButtonComponent.cs" />
+    <Compile Include="Component\Options\AjaxButtonOptions.cs" />
+    <Compile Include="Component\Options\TabOptions.cs" />
+    <Compile Include="Component\Enum\DomEventsEnum.cs" />
+    <Compile Include="Component\Enum\JavaScriptTypesEnum.cs" />
+    <Compile Include="Component\Enum\JqueryEffectsEnum.cs" />
+    <Compile Include="Component\ExtensionControls.cs" />
+    <Compile Include="Component\JqueryComponentBuilder.cs" />
+    <Compile Include="Component\JqueryExtension.cs" />
     <Compile Include="Component\LinkList\LinkListBuilder.cs" />
     <Compile Include="Component\LinkList\LinkListComponent.cs" />
-    <Compile Include="Component\Extenstions.cs" />
     <Compile Include="Component\LinkList\LinkBuilder.cs" />
     <Compile Include="Component\LinkList\LinkComponent.cs" />
     <Compile Include="Component\LinkList\LinkBuilderFactory.cs" />
+    <Compile Include="Component\OptionBuilder.cs" />
+    <Compile Include="Component\Tab\TabBuilder.cs" />
+    <Compile Include="Component\Tab\TabComponent.cs" />
+    <Compile Include="Component\Tools.cs" />
     <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Foo.cs" />
-    <Compile Include="Models\HtmlAttributes\StyleCss.cs" />
+    <Compile Include="Models\HtmlStyleAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

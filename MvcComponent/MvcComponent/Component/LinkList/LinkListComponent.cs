@@ -23,18 +23,6 @@ namespace MvcComponent.Component
             }
         }
 
-        public override string HtmlStyle
-        {
-            get
-            {
-                return " style=margin:15px;";
-            }
-            set
-            {
-                base.HtmlStyle = value;
-            }
-        }
-
         public override void RenderConent(System.Web.UI.HtmlTextWriter writer)
         {
 

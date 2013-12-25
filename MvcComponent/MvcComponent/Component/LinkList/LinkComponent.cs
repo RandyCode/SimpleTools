@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -22,15 +23,11 @@ namespace MvcComponent.Component
             }
         }
 
-        public override string HtmlStyle
+        public override StringBuilder HtmlAttribute
         {
             get
             {
-                return " style=list-style-type:none";
-            }
-            set
-            {
-                base.HtmlStyle = value;
+                return new StringBuilder(" style=list-style-type:none");
             }
         }
 
@@ -38,8 +35,10 @@ namespace MvcComponent.Component
         {
             var a = new TagBuilder("a");
             a.MergeAttribute("href", Url);
+            a.MergeAttribute("style", "text-decoration:none");
             a.InnerHtml = Title;
             writer.Write(a.ToString());
+
         }
     }
 }

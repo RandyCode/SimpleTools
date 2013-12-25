@@ -27,66 +27,77 @@ namespace MvcComponent.Component
             get { return Component.ViewContext; }
         }
 
+        public BaseBuilder() { }
 
         public BaseBuilder(TComponent component)
         {
             this.Component = component;
         }
 
+        public TBuilder GenerateId(string name)
+        {
+            Component.Name = name;
+            Component.HtmlAttribute.Append(MergeAttribute("id", name));
+            Component.HtmlAttribute.Append(MergeAttribute("name", name));
+            return this as TBuilder;
+        }
+
         public TBuilder GenerateId()
         {
-            if (string.IsNullOrEmpty(Component.Name))
+            if (string.IsNullOrEmpty(this.Component.Name))
             {
-                string prefix = Component.GetType().Name;
-                string key = prefix + "element";
-                int seq = 1;
-
-                if (Context.HttpContext.Items.Contains(key))
+                string name = this.Component.GetType().Name;
+                string key = name;
+                int num = 1;
+                if (this.Context.HttpContext.Items.Contains(key))
                 {
-                    seq = (int)Context.HttpContext.Items[key] + 1;
-                    Context.HttpContext.Items[key] = seq;
+                    num = ((int)this.Context.HttpContext.Items[key]) + 1;
+                    this.Context.HttpContext.Items[key] = num;
                 }
                 else
                 {
-                    Context.HttpContext.Items.Add(key, seq);
+                    this.Context.HttpContext.Items.Add(key, num);
                 }
-                Component.Name = prefix + seq.ToString();
+                this.Component.Name = name + num.ToString();
+                Component.HtmlAttribute.Append(MergeAttribute("id", this.Component.Name));
+                Component.HtmlAttribute.Append(MergeAttribute("name", this.Component.Name));
             }
-            return this as TBuilder;
+            return (this as TBuilder);
         }
 
-        public TBuilder SetHtmlStyle(Models.StyleCss item)
+
+
+        public TBuilder SetHtmlAttributes(Models.HtmlStyleAttribute item)
         {
             Type type = item.GetType();
             StringBuilder sb = new StringBuilder();
-            sb.Append(" style='");
             foreach (var pro in type.GetProperties())
             {
-                if (pro.GetValue(item) != null && pro.GetValue(item) != "")
+                if (pro.GetValue(item) != null && pro.GetValue(item).ToString() != "")
                 {
+                    var name = pro.Name.ToLower().ToString();
+                    var value = pro.GetValue(item).ToString();
+                    sb.AppendFormat("{0}:{1};", name, value);
 
                 }
             }
-            if (sb.ToString() != " style='")
-                Component.HtmlStyle = sb.ToString();
+            if (!string.IsNullOrWhiteSpace(sb.ToString()))
+            {
+                Component.HtmlAttribute.Append(MergeAttribute("style", sb.ToString()));
+            }
+
             return this as TBuilder;
         }
 
-        public TBuilder SetHtmlClass(string css)
+        public TBuilder SetCssClass(string css)
         {
             if (!string.IsNullOrEmpty(css))
             {
-                Component.HtmlClass = " class=" + css;
+                Component.HtmlAttribute.Append(MergeAttribute("class", css));
             }
             return this as TBuilder;
         }
 
-
-        public virtual TBuilder Name(string name)
-        {
-            Component.Name = name;
-            return this as TBuilder;
-        }
 
         public virtual void Render()
         {
@@ -106,6 +117,11 @@ namespace MvcComponent.Component
             return MvcHtmlString.Create(Component.GetHtml());
         }
 
+
+        private string MergeAttribute(string key, string value)
+        {
+            return string.Format(" {0}='{1}' ", key, value);
+        }
 
 
     }
