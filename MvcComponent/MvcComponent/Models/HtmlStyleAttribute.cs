@@ -12,6 +12,7 @@ namespace MvcComponent.Models
         public string Cursor { get; set; }
         //public string Color { get; set; }
         //public string FontSize { get; set; }
+        //[JqueryOptions("background-color")]
         //public string BackGroundColor { get; set; } 
 
     }

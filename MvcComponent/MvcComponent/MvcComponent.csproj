@@ -117,13 +117,13 @@
     <Compile Include="Component\BaseComponent.cs" />
     <Compile Include="Component\Button\AjaxButtonBuilder.cs" />
     <Compile Include="Component\Button\AjaxButtonComponent.cs" />
-    <Compile Include="Component\Options\AjaxButtonOptions.cs" />
-    <Compile Include="Component\Options\TabOptions.cs" />
+    <Compile Include="Component\Button\AjaxButtonOptions.cs" />
+    <Compile Include="Component\Tab\TabOptions.cs" />
     <Compile Include="Component\Enum\DomEventsEnum.cs" />
     <Compile Include="Component\Enum\JavaScriptTypesEnum.cs" />
     <Compile Include="Component\Enum\JqueryEffectsEnum.cs" />
     <Compile Include="Component\ExtensionControls.cs" />
-    <Compile Include="Component\JqueryComponentBuilder.cs" />
+    <Compile Include="Component\JSThemeProperty.cs" />
     <Compile Include="Component\JqueryExtension.cs" />
     <Compile Include="Component\LinkList\LinkListBuilder.cs" />
     <Compile Include="Component\LinkList\LinkListComponent.cs" />
@@ -147,6 +147,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\testcss.css" />
+    <Content Include="Scripts\testJs.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Web.config" />

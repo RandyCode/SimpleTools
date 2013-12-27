@@ -17,7 +17,11 @@
         border:1px solid #cccccc;
         top: 5px;
         text-align:center;
+        background-color:green;
+        color:white;
     }
-div {
-
+.tab div {
+    border:1px solid #cccccc;
+    padding:5px;
+    min-height:50px;
 }

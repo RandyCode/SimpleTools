@@ -21,13 +21,25 @@ namespace MvcComponent.Component
             }
         }
 
-        public static void JQuery(string selector, string pluginName, object options)
+        public static void RegisterThemeScript(ViewContext viewContext, string script)
         {
-            string str = selector;
-            if (!selector.StartsWith(".") && !selector.StartsWith("#") && !selector.Equals("body") && !selector.Equals("document"))
+            if (viewContext.TempData["InitThemeScripts"] != null)
             {
-                str = "#" + selector;
+                TempDataDictionary dictionary;
+                (dictionary = viewContext.TempData)["InitThemeScripts"] = dictionary["InitThemeScripts"] + "\r\n" + script;
+            }
+            else
+            {
+                viewContext.TempData["InitThemeScripts"] = script;
             }
         }
+
+        //初始化主題屬性
+        public static string Init2JsObject()
+        {
+
+            return "randy";
+        }
+
     }
 }

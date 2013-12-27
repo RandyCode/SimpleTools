@@ -9,9 +9,10 @@ namespace MvcComponent.Component
     {
         public TabBuilder(TabComponent component) : base(component) { }
 
+
         public TabBuilder AddTab(string title, string content)
         {
-            Component.Collection.Add(new TabOptions { Content = content, Title = title });
+            Component.Collection.Add(new TabOptions { Content = content, Title = title});
             return this;
         }
 

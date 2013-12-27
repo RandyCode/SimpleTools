@@ -10,9 +10,13 @@ namespace MvcComponent.Component
     {
         public TabComponent(ViewContext viewContext) : base(viewContext) { }
 
+        //如果沒用調用GenerateId()  此屬性有問題。！name=null
         protected string JquerySelector
         {
-            get { return ("$(\"#" + base.Name + "\")"); }
+            get
+            {
+                return ("$(\"#" + base.Name + "\")");
+            }
         }
 
         private IList<TabOptions> _collection;
@@ -34,20 +38,32 @@ namespace MvcComponent.Component
             foreach (var item in Collection)
             {
                 TagBuilder tbTitleLi = new TagBuilder("li");
+                tbTitleLi.MergeAttribute("style", "cursor:pointer");
                 tbTitleLi.InnerHtml = item.Title;
                 tbTitleUl.InnerHtml += "\r\n" + tbTitleLi.ToString();
 
                 TagBuilder tbContent = new TagBuilder("div");
+                tbContent.MergeAttribute("style", "display:none");
                 tbContent.InnerHtml = item.Content;
                 divContent += tbContent.ToString();
             }
-            // how to show double content by jquery?
+
 
             string htmlString = tbTitleUl.ToString() + divContent;
             writer.Write(htmlString);
-            //肯定要加jquery控制。
+            Tools.RegisterStartupScript(ViewContext, "$('#"+base.Name+"').tabClick().tabHover()");
 
-            Tools.RegisterStartupScript(ViewContext, "");
+            ////JavaScript  第一種。 c#寫多點 js少點
+            //JqueryBuilder.Singleton.Selector("selfTab li:nth-child(1)")
+            //                        .Click((r) => { r.Selector("selfTab div").Hide(); r.Selector("selfTab div:nth-child(2)").Show(); })
+            //                        .RenderScript(ViewContext);
+
+            //JqueryBuilder.Singleton.Selector("selfTab li:nth-child(2)")
+            //                      .Click((r) => { r.Selector("selfTab div").Hide(); r.Selector("selfTab div:nth-child(3)").Show(); })
+            //                      .RenderScript(ViewContext);
+ 
+            //JavaScript 第二種 用Options  js多點  C#少點
+
         }
     }
 

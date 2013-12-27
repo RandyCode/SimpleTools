@@ -60,6 +60,8 @@ namespace MvcComponent.Component
             RenderConent(writer);
 
             RenderEndConent(writer);
+           
+            Tools.RegisterThemeScript(ViewContext, Tools.Init2JsObject());
         }
 
 

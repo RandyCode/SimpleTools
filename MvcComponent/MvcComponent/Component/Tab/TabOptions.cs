@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcComponent.Component.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,5 +10,6 @@ namespace MvcComponent.Component
     {
         public string Title { get; set; }
         public string Content { get; set; }
+ 
     }
 }

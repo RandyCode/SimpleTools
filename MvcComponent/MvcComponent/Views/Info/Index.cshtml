@@ -1,5 +1,6 @@
 ﻿<link href="@Url.Content("~/Content/testcss.css")" rel="stylesheet" />
 <script src="@Url.Content("~/Scripts/jquery-1.8.0.min.js")"></script>
+<script src="@Url.Content("~/Scripts/testJs.js")"></script>
 @{  
     Html.LinkList().Items(items =>
    {
@@ -9,7 +10,7 @@
    })
    .SetHtmlAttributes(new MvcComponent.Models.HtmlStyleAttribute { Width = 100, Height = 200 })
    .SetCssClass("bg")
-   .GenerateId("LinkList")
+   .GenerateId()
    .Render();
 
     //var listitems = new List<MvcComponent.Models.Foo>();
@@ -29,22 +30,29 @@
     Html.Tab()
         .AddTab("tab1", "TAB1 CONTENT")
         .AddTab("tab2", "SECOND TAB")
-        .AddTab("123","sdf")
+        .SetCssClass("tab")
+        .GenerateId("selfTab")
         .Render();
 
 
 }
 <script>
     $(function () {
-        $("").
-    })
+     
+  
+    });
+
 </script>
+<ul>
+    <li style="background-color:red">1</li>
+    <li>2</li>
+</ul>
+
 <br />
 @{
     Html.AButton()
         .Text("it's a button")
         .SetCssClass("button")
-        .Click()
         .SetHtmlAttributes(new MvcComponent.Models.HtmlStyleAttribute { Width = 100, Height = 50, Cursor = "pointer" })
         .Render();
 }

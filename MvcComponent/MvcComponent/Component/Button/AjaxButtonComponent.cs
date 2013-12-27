@@ -27,6 +27,7 @@ namespace MvcComponent.Component
             a.MergeAttribute("style", "text-decoration:none");
             a.InnerHtml = Text;
             writer.Write(a.ToString());
+            Tools.RegisterStartupScript(base.ViewContext, "$('#" + base.Name + "').click(function () {alert('text button click'); });");
         }
     }
 }
