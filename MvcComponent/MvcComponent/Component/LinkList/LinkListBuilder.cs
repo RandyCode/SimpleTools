@@ -17,6 +17,7 @@ namespace MvcComponent.Component
 
             if (items != null)
                 items.Invoke(factory);
+
            
             return this;
         }

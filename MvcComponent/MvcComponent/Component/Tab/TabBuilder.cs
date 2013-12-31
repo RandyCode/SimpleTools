@@ -7,7 +7,8 @@ namespace MvcComponent.Component
 {
     public class TabBuilder:BaseBuilder<TabComponent,TabBuilder>
     {
-        public TabBuilder(TabComponent component) : base(component) { }
+        public TabBuilder(TabComponent component) : base(component) 
+        {   }
 
 
         public TabBuilder AddTab(string title, string content)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -26,7 +27,7 @@ namespace MvcComponent.Component
             if (viewContext.TempData["InitThemeScripts"] != null)
             {
                 TempDataDictionary dictionary;
-                (dictionary = viewContext.TempData)["InitThemeScripts"] = dictionary["InitThemeScripts"] + "\r\n" + script;
+                (dictionary = viewContext.TempData)["InitThemeScripts"] = dictionary["InitThemeScripts"] + script;
             }
             else
             {
@@ -37,8 +38,21 @@ namespace MvcComponent.Component
         //初始化主題屬性
         public static string Init2JsObject()
         {
+            StringBuilder sb = new StringBuilder();
+            //JSThemeProperty.TabInColor = "yellowgreen";
+            //JSThemeProperty.TabOutColor = "lightyellow";
+            if (!string.IsNullOrEmpty(JSThemeProperty.TabInColor))
+                sb.Append(MergeThemeProp("tabInColor", JSThemeProperty.TabInColor));
 
-            return "randy";
+            if (!string.IsNullOrEmpty(JSThemeProperty.TabInColor))
+                sb.Append(MergeThemeProp("tabOutColor", JSThemeProperty.TabOutColor));
+
+            return sb.ToString();
+        }
+
+        private static string MergeThemeProp(string key, string value)
+        {
+            return string.Format("theme.{0}='{1}';", key, value);
         }
 
     }

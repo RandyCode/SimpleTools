@@ -1,5 +1,5 @@
 ﻿/// <reference path="jquery-1.8.0.min.js" />
-//好處就是設置主題 只需要修改這裡的屬性
+
 var theme={
     //tab property
     tabIndex: -1,
@@ -12,6 +12,7 @@ $.fn.extend({
         $(this).find("div:first").show()
         var div = $(this).find("div");
         var li = $(this).find("li");
+        li.css("background-color", theme.tabOutColor);
         $(this).find("li").each(function () {
             $(this).click(function () {
                 li.css("background-color", theme.tabOutColor);

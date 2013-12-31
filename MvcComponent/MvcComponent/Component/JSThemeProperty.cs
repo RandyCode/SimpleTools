@@ -9,10 +9,10 @@ namespace MvcComponent.Component
 {
     public static class JSThemeProperty
     {
-          //tab property
-    //tabIndex: -1,
-    //tabInColor: "lightgreen",
-    //tabOutColor:"green"
+        //tab property
+        //tabIndex: -1,
+        //tabInColor: "lightgreen",
+        //tabOutColor:"green"
 
         public static string TabInColor { get; set; }
 

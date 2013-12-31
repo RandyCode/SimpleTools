@@ -27,11 +27,13 @@ namespace MvcComponent.Component
             get { return Component.ViewContext; }
         }
 
-        public BaseBuilder() { }
+        public BaseBuilder()
+        {
+        }
 
         public BaseBuilder(TComponent component)
         {
-            this.Component = component;
+            this.Component = component;        
         }
 
         public TBuilder GenerateId(string name)

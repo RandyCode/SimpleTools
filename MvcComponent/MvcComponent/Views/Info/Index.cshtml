@@ -1,6 +1,8 @@
 ﻿<link href="@Url.Content("~/Content/testcss.css")" rel="stylesheet" />
 <script src="@Url.Content("~/Scripts/jquery-1.8.0.min.js")"></script>
 <script src="@Url.Content("~/Scripts/testJs.js")"></script>
+@model List<MvcComponent.Models.Foo>
+HttpMethod=@ViewContext.RequestContext.HttpContext.Request.HttpMethod
 @{  
     Html.LinkList().Items(items =>
    {
@@ -13,16 +15,11 @@
    .GenerateId()
    .Render();
 
-    //var listitems = new List<MvcComponent.Models.Foo>();
-    //listitems.Add(new MvcComponent.Models.Foo() { Key = "BindingItem1", Value = "#" });
-    //listitems.Add(new MvcComponent.Models.Foo() { Key = "BindingItem2", Value = "#" });
-    //listitems.Add(new MvcComponent.Models.Foo() { Key = "BindingItem3", Value = "#" });
 
-    //Html.LinkList()
-    //    .GenerateId("BindLinkList")
-    //    .Bind(listitems, m => m.Key, m => m.Value)
-    //    .Render();
-
+    Html.LinkList()
+        .GenerateId("BindLinkList")
+        .Bind(Model, m => m.Key, m => m.Value)  //數據綁定
+        .Render();
 }
 <br />
 <br />
@@ -34,27 +31,25 @@
         .GenerateId("selfTab")
         .Render();
 
-
+    //沒調用GenerateId 時候，應自動生成id
 }
 <script>
-    $(function () {
-     
-  
-    });
+
 
 </script>
-<ul>
-    <li style="background-color:red">1</li>
-    <li>2</li>
-</ul>
+
+
 
 <br />
 @{
     Html.AButton()
-        .Text("it's a button")
+        .Text("ajax click button")
+        .Ajax("index", "info", "post", new { name = "randy", id = 1 })  //ajax
         .SetCssClass("button")
         .SetHtmlAttributes(new MvcComponent.Models.HtmlStyleAttribute { Width = 100, Height = 50, Cursor = "pointer" })
         .Render();
+
+     
 }
 
 @Html.RenderScripts()
