@@ -13,14 +13,15 @@ FOR WATCHEFOLDER PROJECT
 
     END
     
-    FOR MVCCOMPONENT PROJECT
+    
+FOR MVCCOMPONENT PROJECT
 ===========
     embed way to set up my own asp.net mvc component . just for referral
 
 
     END
     
-    FOR SilverlightDemo PROJECT
+FOR SilverlightDemo PROJECT
 ===========
     SilverlightDemo
 
