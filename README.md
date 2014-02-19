@@ -1,4 +1,3 @@
-
 FOR ENCRYPTEDMAIL PROJECT
 ===========
     STEP 1: First you must apply a certification. this website has provided a free secure email certificate 
@@ -7,11 +6,23 @@ FOR ENCRYPTEDMAIL PROJECT
       Be carefully you can use this certification only in the same boswer which you apply the certification.
     END
     
-    
-    
 FOR WATCHEFOLDER PROJECT
 ===========
     configurate you folder path in web.config file,and start .
+
+
+    END
+    
+    FOR MVCCOMPONENT PROJECT
+===========
+    embed way to set up my own asp.net mvc component . just for referral
+
+
+    END
+    
+    FOR SilverlightDemo PROJECT
+===========
+    SilverlightDemo
 
 
     END
