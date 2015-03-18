@@ -6,24 +6,15 @@ FOR ENCRYPTEDMAIL PROJECT
       Be carefully you can use this certification only in the same boswer which you apply the certification.
     END
     
-FOR WATCHEFOLDER PROJECT
-===========
-    configurate you folder path in web.config file,and start .
-
-    END
-    
-    
-FOR MVCCOMPONENT PROJECT
-===========
-    embed way to set up my own asp.net mvc component . just for referral
-
-    END
     
 More..(put on BAIDUYUN)
 ===========
-- ORM    /2012
-- android demo (hello word use mono) /2013
-- consistent hash (for memcached)  /2014
-- memcached demo  /2014
-- nginx /2014
-- mvc rewrite /2014
+- ORM    - /2012
+- encrypted email - /2012
+- watch floder  - /2013
+- mvc componet - /2013
+- android demo (hello word use mono) - /2013
+- consistent hash (for memcached)  - /2014
+- memcached demo  - /2014
+- nginx - /2014
+- mvc rewrite - /2014
