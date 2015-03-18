@@ -10,7 +10,6 @@ FOR WATCHEFOLDER PROJECT
 ===========
     configurate you folder path in web.config file,and start .
 
-
     END
     
     
@@ -18,12 +17,14 @@ FOR MVCCOMPONENT PROJECT
 ===========
     embed way to set up my own asp.net mvc component . just for referral
 
-
     END
     
-FOR SilverlightDemo PROJECT
+More..(put on BAIDUYUN)
 ===========
-    SilverlightDemo
-
-
+- ORM    
+- mono_demo
+- android demo (hello word)
+- consistentHash (use for memcached)
+- memcached
+- nginx
     END
